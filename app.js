@@ -11,8 +11,8 @@ window.addEventListener('load', () => {
             long = position.coords.longitude;
             lat = position.coords.latitude;
 
-            const proxy = 'http://cors-anywhere.herokuapp.com/';
-            const api = `http://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/5061f908fef335c6fc9765f1ef107ea2/${lat},${long}`;
+            const proxy = 'https://cors-anywhere.herokuapp.com/';
+            const api = `${proxy}https://api.darksky.net/forecast/5061f908fef335c6fc9765f1ef107ea2/${lat},${long}`;
 
             fetch(api)
                 .then(response => {
@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
                     locationTimezone.textContent = data.timezone;
                     temperatureDegree.textContent = Math.floor(temperature);
                     temperatureDescription.textContent = summary;
-                });
+                })
         });
     }
 
