@@ -25,8 +25,20 @@ window.addEventListener('load', () => {
                     locationTimezone.textContent = data.timezone;
                     temperatureDegree.textContent = Math.floor(temperature);
                     temperatureDescription.textContent = summary;
+
+                    // Set Icon
+                    setIcons(icon, document.querySelector('.icon'));
                 })
         });
+    }
+
+    function setIcons(icon, iconId) {
+        const skycons = new skycons({color: "white"});
+        const currentIcon = icon.replace(/-/g, "_").toUpperCase();
+
+        skycons.play();
+        
+        return skycons.set(iconId, Skycons[currentIcon]);
     }
 
 });
